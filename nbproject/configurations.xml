@@ -6,6 +6,9 @@
         <df name="external">
           <in>glad.c</in>
         </df>
+        <in>Application.cpp</in>
+        <in>Area.cpp</in>
+        <in>Map.cpp</in>
         <in>main.cpp</in>
       </df>
     </df>
@@ -31,7 +34,10 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <flagsDictionary>
-        <element flagsID="0" commonFlags="-std=gnu++1z"/>
+        <element flagsID="0"
+                 commonFlags="-mtune=generic -march=x86-64 -fstack-protector-strong"/>
+        <element flagsID="1" commonFlags="-std=c++14"/>
+        <element flagsID="2" commonFlags="-std=gnu++1z"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -44,6 +50,8 @@
           <cTool>
             <incDir>
               <pElem>src/external</pElem>
+              <pElem>/usr/local/include/glad</pElem>
+              <pElem>/usr/local/include/KHR</pElem>
               <pElem>.</pElem>
             </incDir>
           </cTool>
@@ -59,10 +67,24 @@
           <preBuildCommand>${CMAKE} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=${IDE_CC} -DCMAKE_CXX_COMPILER=${IDE_CXX} -DCMAKE_C_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_CXX_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .</preBuildCommand>
         </preBuild>
       </makefileType>
-      <item path="src/external/glad.c" ex="false" tool="0" flavor2="0">
+      <item path="src/Application.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="src/Area.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="src/Map.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="src/external/glad.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="2">
         </ccTool>
       </item>
     </conf>
