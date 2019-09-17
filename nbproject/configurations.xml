@@ -7,7 +7,7 @@
           <in>glad.c</in>
         </df>
         <in>Application.cpp</in>
-        <in>Area.cpp</in>
+        <in>Board.cpp</in>
         <in>Map.cpp</in>
         <in>main.cpp</in>
       </df>
@@ -71,7 +71,7 @@
         <ccTool flags="1">
         </ccTool>
       </item>
-      <item path="src/Area.cpp" ex="false" tool="1" flavor2="11">
+      <item path="src/Board.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="1">
         </ccTool>
       </item>
