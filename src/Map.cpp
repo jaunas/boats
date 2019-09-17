@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 
 #include "Map.h"
 
@@ -40,26 +41,30 @@ void Map::setState(int row, int col, State state)
 
 void Map::addBoat(int length)
 {
-    srand(time(NULL));
+    std::random_device rand_dev;
+    std::mt19937 generator(rand_dev());
+    std::uniform_int_distribution<int> rowDistr(0, m_rowsNum-1);
+    std::uniform_int_distribution<int> colDistr(0, m_colsNum-1);
+    std::uniform_int_distribution<int> directionDistr(0, 1);
     
     int startRow, startCol, endRow, endCol, dRow, dCol;
     
     do {
         do {
             do {
-                startRow = rand() % m_rowsNum;
-                startCol = rand() % m_colsNum;
+                startRow = rowDistr(generator);
+                startCol = colDistr(generator);
 
             } while (getState(startRow, startCol) != State::empty);
 
-            if (rand()%2) {
+            if (directionDistr(generator)) {
                 // vertical
                 dRow = 0;
-                dCol = (rand()%2 * 2) - 1;
+                dCol = (directionDistr(generator) * 2) - 1;
             } else {
                 // horizontal
                 dCol = 0;
-                dRow = (rand()%2 * 2) - 1;
+                dRow = (directionDistr(generator) * 2) - 1;
             }
 
             endRow = startRow + dRow*(length-1);
